@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import axios from 'axios'
 // import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
 import {showErrMsg, showSuccessMsg} from '../Utils/notification/Notification'
-// import { BASE_URL } from '../Utils/config'
+import {BASE_URL} from '../Utils/config'
 
 function ActivationEmail() {
     const {activation_token} = useParams()
@@ -14,7 +14,7 @@ function ActivationEmail() {
         if(activation_token){
             const activationEmail = async () => {
                 try {
-                    const res = await axios.post(`/api/activation`, {activation_token})
+                    const res = await axios.post(`${BASE_URL}/api/activation`, {activation_token})
                     setSuccess(res.data.msg)
                 } catch (err) {
                     err.response.data.msg && setErr(err.response.data.msg)
