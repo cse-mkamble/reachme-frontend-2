@@ -41,7 +41,7 @@ export const refreshToken = () => async (dispatch) => {
         dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: true } })
         try {
             // console.log(firstLogin)
-            const res = await axios.post(`${BASE_URL}/api/refresh_token`, null)
+            const res = await axios.post('/api/refresh_token', null)
             // console.log(res)
             dispatch({
                 type: GLOBALTYPES.AUTH,
